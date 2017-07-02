@@ -191,8 +191,12 @@ $myha: #3498DB
 			font-weight: 800
 			margin: 0 40px 0 0 
 			width: 100%
+			+mq($from: tablet)
+				font-size: 10em
 			+mq($until: tablet)
 				font-size: 6em 
+			+mq($from: mobile)
+				font-size: 4em 
 		h2
 			font-size: 4em
 			color: rgba(#fff, 0.5)
@@ -200,5 +204,9 @@ $myha: #3498DB
 			margin: 0
 			width: 100%
 			text-transform: capitalize
+			+mq($from: tablet)
+				font-size: 4em
 			+mq($until: tablet)
 				font-size: 2.5em 
+			+mq($from: mobile)
+				font-size: 1.5em 
