@@ -6,10 +6,14 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap"
 @import "_variables.scss"
+@import "_responsive.scss"
 @import "bourbon/bourbon"
+@import "neat/neat"
 
 $juske: #E74C3C
 $myha: #3498DB
+
+
 
 .fade-enter-active, .fade-leave-active
 	transition: opacity .8s
@@ -22,23 +26,36 @@ $myha: #3498DB
 	height: 100%
 	top: 0
 	transition: 150ms all ease-in-out
+	+mq($until: tablet)
+		width: 100% !important
+		height: 50% !important
 	&:first-of-type
 		left: 0
 		+linear-gradient($juske, darken($juske, 16%))
+		+mq($until: tablet)
+			top: 0
 	&:last-of-type
 		right: 0
 		+linear-gradient($myha, darken($myha, 16%))
+		+mq($until: tablet)
+			top: 50%
 	.izgovori
 		position: absolute
 		width: 200px
 		height: 25px
 		left: 50%
-		top: 75%
+		top: 65%
 		transform: translate(-50%, -50%)
 		text-align: center
 		transition: 100ms all ease-in-out
+		+mq($until: tablet)
+			top: 50%
 		&.active
 			height: 150px
+			top: 74%
+			+mq($until: tablet)
+				top: 64%
+				height: 130px
 		p
 			margin: 0
 			color: rgba(#fff, 0.7)
@@ -55,7 +72,6 @@ $myha: #3498DB
 			transition: 100ms all ease-in-out
 			&.active
 				color: #FFF
-				font-weight: 500
 				&:hover
 					color: #FFF 
 			&.inactive
@@ -167,12 +183,16 @@ $myha: #3498DB
 		left: 50%
 		transform: translate(-50%, -50%)
 		text-align: center
+		+mq($until: tablet)
+			top: 25%
 		h1
 			font-size: 10em
 			color: #FFF
 			font-weight: 800
 			margin: 0 40px 0 0 
 			width: 100%
+			+mq($until: tablet)
+				font-size: 6em 
 		h2
 			font-size: 4em
 			color: rgba(#fff, 0.5)
@@ -180,3 +200,5 @@ $myha: #3498DB
 			margin: 0
 			width: 100%
 			text-transform: capitalize
+			+mq($until: tablet)
+				font-size: 2.5em 
