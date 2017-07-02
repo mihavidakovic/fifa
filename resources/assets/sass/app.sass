@@ -22,22 +22,12 @@ $myha: #3498DB
 	height: 100%
 	top: 0
 	transition: 150ms all ease-in-out
-	+respond-to(small)
-		width: 100%
-		height: 50%
-	+respond-to(large)
-		width: 50%
-		height: 100%
 	&:first-of-type
 		left: 0
 		+linear-gradient($juske, darken($juske, 16%))
-		+respond-to(small)
-			top: 0
 	&:last-of-type
 		right: 0
 		+linear-gradient($myha, darken($myha, 16%))
-		+respond-to(small)
-			bottom: 0
 	.izgovori
 		position: absolute
 		width: 200px
