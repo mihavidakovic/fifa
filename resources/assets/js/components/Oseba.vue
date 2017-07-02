@@ -9,7 +9,10 @@
             <p class="inactive" v-on:click="showIzgovoriList" v-if="showIzgovori == false">Izgovori za poraze <i class="ion ion-ios-arrow-forward"></i></p>
             <div class="more" v-if="showIzgovori == true">
                 <ul>
-                    <li v-for="izgovor in izgovori">{{izgovor.izgovor}}</li>
+                    <li v-for="izgovor in izgovori">
+                        <span>{{izgovor.izgovor}}</span>
+                        <small>{{izgovor.created_at | moment("from", "now")}}</small>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -67,7 +70,7 @@
             },
             hideAdd: function() {
                 if (this.izgovor == "") {
-                    this.napaka = "Dodana ni bila nobena zmaga!"
+                    this.napaka = "Vnesi izgovor za poraz!"
                     this.add = false;
                     var self = this;
                     setInterval(function() {

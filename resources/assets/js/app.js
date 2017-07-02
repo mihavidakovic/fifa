@@ -9,7 +9,14 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import axios from '../../../node_modules/axios'
+const moment = require('moment')
+require('moment/locale/sl')
 
+Vue.use(require('vue-moment'), {
+    moment
+})
+
+console.log(Vue.moment().locale()) //es
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

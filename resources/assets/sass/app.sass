@@ -13,7 +13,11 @@
 $juske: #E74C3C
 $myha: #3498DB
 
-
++keyframes(vs)
+	from
+		opacity: 0
+	to
+		opacity: 1
 
 .fade-enter-active, .fade-leave-active
 	transition: opacity .8s
@@ -39,14 +43,34 @@ $myha: #3498DB
 		+linear-gradient($myha, darken($myha, 16%))
 		+mq($until: tablet)
 			top: 50%
+		&:before
+			content: "VS"
+			position: absolute
+			left: -40px
+			top: 45%
+			width: 80px
+			height: 80px
+			background-color: #FFF 
+			-webkit-border-radius: 100% 
+			border-radius: 100% 
+			text-align: center
+			padding-top: 21px
+			+transform(transitionY(-50%)) 
+			font-size: 2em
+			font-weight: 200
+			color: rgba(#000, 0.7)  
+			letter-spacing: 2px  
+			box-shadow: 0 3px 20px 0 rgba(#000, 0.3)
+			opacity: 0
+			+animation(vs 200ms ease-in-out forwards)
+			+animation-delay(1500ms)
 	.izgovori
 		position: absolute
-		width: 200px
+		width: 300px
 		height: 25px
 		left: 50%
 		top: 65%
 		transform: translate(-50%, -50%)
-		text-align: center
 		transition: 100ms all ease-in-out
 		+mq($until: tablet)
 			top: 50%
@@ -70,6 +94,7 @@ $myha: #3498DB
 			left: 0
 			top: 0
 			transition: 100ms all ease-in-out
+			text-align: center
 			&.active
 				color: #FFF
 				&:hover
@@ -100,6 +125,13 @@ $myha: #3498DB
 				border-bottom: 1px dotted rgba(#fff, 0.09)
 				&:last-child
 					border-bottom: none 
+				span
+					margin: 0
+					padding: 0
+					float: left
+					position: static 
+				small
+					float: right
 	.napaka
 		position: absolute
 		width: 100%
@@ -183,6 +215,8 @@ $myha: #3498DB
 		left: 50%
 		transform: translate(-50%, -50%)
 		text-align: center
+		+user-select(none)
+		cursor: default
 		+mq($until: tablet)
 			top: 25%
 		h1
