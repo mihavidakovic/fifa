@@ -73,7 +73,7 @@
 "use strict";
 
 
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 
 /*global toString:true*/
 
@@ -397,10 +397,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(2);
+    adapter = __webpack_require__(3);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(2);
+    adapter = __webpack_require__(3);
   }
   return adapter;
 }
@@ -477,6 +477,12 @@ module.exports = defaults;
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__(11);
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -485,7 +491,7 @@ var settle = __webpack_require__(17);
 var buildURL = __webpack_require__(20);
 var parseHeaders = __webpack_require__(26);
 var isURLSameOrigin = __webpack_require__(24);
-var createError = __webpack_require__(5);
+var createError = __webpack_require__(6);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(19);
 
 module.exports = function xhrAdapter(config) {
@@ -658,7 +664,7 @@ module.exports = function xhrAdapter(config) {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -684,7 +690,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -696,7 +702,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -720,7 +726,7 @@ module.exports = function createError(message, config, code, response) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -738,7 +744,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 var g;
@@ -765,12 +771,12 @@ module.exports = g;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_axios__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_axios__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__node_modules_axios__);
 
 /**
@@ -790,7 +796,7 @@ window.Vue = __webpack_require__(37);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('oseba', __webpack_require__(49));
+Vue.component('oseba', __webpack_require__(34));
 
 var app = new Vue({
   el: '#app',
@@ -798,16 +804,10 @@ var app = new Vue({
 });
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(11);
 
 /***/ }),
 /* 11 */
@@ -817,7 +817,7 @@ module.exports = __webpack_require__(11);
 
 
 var utils = __webpack_require__(0);
-var bind = __webpack_require__(6);
+var bind = __webpack_require__(7);
 var Axios = __webpack_require__(13);
 var defaults = __webpack_require__(1);
 
@@ -852,9 +852,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(3);
+axios.Cancel = __webpack_require__(4);
 axios.CancelToken = __webpack_require__(12);
-axios.isCancel = __webpack_require__(4);
+axios.isCancel = __webpack_require__(5);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -875,7 +875,7 @@ module.exports.default = axios;
 "use strict";
 
 
-var Cancel = __webpack_require__(3);
+var Cancel = __webpack_require__(4);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -1092,7 +1092,7 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(18);
-var isCancel = __webpack_require__(4);
+var isCancel = __webpack_require__(5);
 var defaults = __webpack_require__(1);
 
 /**
@@ -1202,7 +1202,7 @@ module.exports = function enhanceError(error, config, code, response) {
 "use strict";
 
 
-var createError = __webpack_require__(5);
+var createError = __webpack_require__(6);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -1645,7 +1645,91 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 28 */,
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            zmage: 0,
+            add: false,
+            izgovor: "",
+            napaka: ""
+        };
+    },
+    props: ['ime'],
+    methods: {
+        fetchScore: function fetchScore() {
+            var self = this;
+            setInterval(function () {
+                axios.get('/zmage/' + self.ime).then(function (response) {
+                    self.zmage = response.data.zmage;
+                });
+            }, 1000);
+        },
+        showAdd: function showAdd() {
+            this.add = true;
+        },
+        hideAdd: function hideAdd() {
+            if (this.izgovor == "") {
+                this.napaka = "Dodana ni bila nobena zmaga!";
+                this.add = false;
+                var self = this;
+                setInterval(function () {
+                    self.napaka = "";
+                }, 2000);
+            } else {
+                var api = "dodaj/" + this.ime;
+                axios.post(api, {
+                    izgovor: this.izgovor,
+                    oseba: this.ime
+                }).then(function (response) {
+                    console.log(response);
+                }).catch(function (error) {
+                    console.log(error);
+                });
+                this.izgovor = "";
+                this.add = false;
+            }
+        }
+    },
+    created: function created() {
+        this.fetchScore();
+    }
+});
+
+/***/ }),
 /* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1670,7 +1754,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(10);
+window.axios = __webpack_require__(2);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -31436,7 +31520,7 @@ return jQuery;
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(38)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(38)(module)))
 
 /***/ }),
 /* 33 */
@@ -31629,7 +31713,40 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 34 */,
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(35)(
+  /* script */
+  __webpack_require__(28),
+  /* template */
+  __webpack_require__(36),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/mihavidakovic/Desktop/fifa/resources/assets/js/components/Oseba.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Oseba.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-9ad11944", Component.options)
+  } else {
+    hotAPI.reload("data-v-9ad11944", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
 /* 35 */
 /***/ (function(module, exports) {
 
@@ -31687,7 +31804,84 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 36 */,
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "oseba"
+  }, [_c('div', {
+    staticClass: "inside"
+  }, [_c('h1', [_vm._v(_vm._s(this.zmage))]), _vm._v(" "), _c('h2', [_vm._v(_vm._s(this.ime))])]), _vm._v(" "), _c('div', {
+    staticClass: "napaka"
+  }, [_c('p', [_vm._v(_vm._s(this.napaka))])]), _vm._v(" "), _c('div', {
+    staticClass: "plus ",
+    class: [{
+      active: _vm.add
+    }, _vm.ime]
+  }, [(_vm.add == true) ? _c('span', {
+    on: {
+      "click": _vm.hideAdd
+    }
+  }, [_c('p', [_vm._v("Dodaj")])]) : _vm._e(), _vm._v(" "), (_vm.add == false) ? _c('span', {
+    on: {
+      "click": _vm.showAdd
+    }
+  }, [_c('i', {
+    staticClass: "ion ion-plus"
+  })]) : _vm._e()]), _vm._v(" "), _c('transition', {
+    attrs: {
+      "name": "fade"
+    }
+  }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.add),
+      expression: "add"
+    }],
+    staticClass: "add",
+    class: [_vm.ime]
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "izgovor"
+    }
+  }, [_vm._v("Izgovor za poraz:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.izgovor),
+      expression: "izgovor"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "email",
+      "name": "izgovor",
+      "id": "izgovor",
+      "placeholder": "Npr.: ti itak skos igraš"
+    },
+    domProps: {
+      "value": (_vm.izgovor)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.izgovor = $event.target.value
+      }
+    }
+  })])])])], 1)
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-9ad11944", module.exports)
+  }
+}
+
+/***/ }),
 /* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -41384,7 +41578,7 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
 /* 38 */
@@ -41418,214 +41612,9 @@ module.exports = function(module) {
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(8);
-module.exports = __webpack_require__(9);
+__webpack_require__(9);
+module.exports = __webpack_require__(10);
 
-
-/***/ }),
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            zmage: 0,
-            add: false,
-            izgovor: "",
-            napaka: ""
-        };
-    },
-    props: ['ime'],
-    methods: {
-        fetchScore: function fetchScore() {
-            var self = this;
-            setInterval(function () {
-                axios.get('/zmage/' + self.ime).then(function (response) {
-                    self.zmage = response.data.zmage;
-                });
-            }, 1000);
-        },
-        showAdd: function showAdd() {
-            this.add = true;
-        },
-        hideAdd: function hideAdd() {
-            if (this.izgovor == "") {
-                this.napaka = "Dodana ni bila nobena zmaga!";
-                this.add = false;
-                var self = this;
-                setInterval(function () {
-                    self.napaka = "";
-                }, 2000);
-            } else {
-                var api = "dodaj/" + this.ime;
-                axios.post(api, {
-                    izgovor: this.izgovor,
-                    oseba: this.ime
-                }).then(function (response) {
-                    console.log(response);
-                }).catch(function (error) {
-                    console.log(error);
-                });
-                this.izgovor = "";
-                this.add = false;
-            }
-        }
-    },
-    created: function created() {
-        this.fetchScore();
-    }
-});
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(35)(
-  /* script */
-  __webpack_require__(48),
-  /* template */
-  __webpack_require__(50),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/Users/mihavidakovic/Desktop/fifa/resources/assets/js/components/Oseba.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Oseba.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-9ad11944", Component.options)
-  } else {
-    hotAPI.reload("data-v-9ad11944", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "oseba"
-  }, [_c('div', {
-    staticClass: "inside"
-  }, [_c('h1', [_vm._v(_vm._s(this.zmage))]), _vm._v(" "), _c('h2', [_vm._v(_vm._s(this.ime))])]), _vm._v(" "), _c('div', {
-    staticClass: "napaka"
-  }, [_c('p', [_vm._v(_vm._s(this.napaka))])]), _vm._v(" "), _c('div', {
-    staticClass: "plus ",
-    class: [{
-      active: _vm.add
-    }, _vm.ime]
-  }, [(_vm.add == true) ? _c('span', {
-    on: {
-      "click": _vm.hideAdd
-    }
-  }, [_c('p', [_vm._v("Dodaj")])]) : _vm._e(), _vm._v(" "), (_vm.add == false) ? _c('span', {
-    on: {
-      "click": _vm.showAdd
-    }
-  }, [_c('i', {
-    staticClass: "ion ion-plus"
-  })]) : _vm._e()]), _vm._v(" "), _c('transition', {
-    attrs: {
-      "name": "fade"
-    }
-  }, [_c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.add),
-      expression: "add"
-    }],
-    staticClass: "add",
-    class: [_vm.ime]
-  }, [_c('div', {
-    staticClass: "form-group"
-  }, [_c('label', {
-    attrs: {
-      "for": "izgovor"
-    }
-  }, [_vm._v("Izgovor za poraz:")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.izgovor),
-      expression: "izgovor"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      "type": "email",
-      "name": "izgovor",
-      "id": "izgovor",
-      "placeholder": "Npr.: ti itak skos igraš"
-    },
-    domProps: {
-      "value": (_vm.izgovor)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.izgovor = $event.target.value
-      }
-    }
-  })])])])], 1)
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-9ad11944", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);
