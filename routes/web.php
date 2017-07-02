@@ -19,6 +19,11 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('zmage', [
+	'as' => 'vseZmage',
+	'uses' => 'ZmageController@vseZmage'
+]);
+
 Route::get('zmage/{ime}', [
 	'as' => 'zmage',
 	'uses' => 'ZmageController@zmage'

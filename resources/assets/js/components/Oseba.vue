@@ -1,14 +1,23 @@
 <template>
-    <div class="oseba">
+    <div class="oseba" v-bind:style="{width: sirina + '%'}">
         <div class="inside">
             <h1>{{this.zmage}}</h1>
             <h2>{{this.ime}}</h2>
+        </div>
+        <div class="izgovori" v-bind:class="{active: showIzgovori }"> 
+            <p class="active" v-on:click="showIzgovoriList" v-if="showIzgovori == true">Izgovori za poraze <i class="ion ion-ios-arrow-down"></i></p>
+            <p class="inactive" v-on:click="showIzgovoriList" v-if="showIzgovori == false">Izgovori za poraze <i class="ion ion-ios-arrow-forward"></i></p>
+            <div class="more" v-if="showIzgovori == true">
+                <ul>
+                    <li v-for="izgovor in izgovori">{{izgovor.izgovor}}</li>
+                </ul>
+            </div>
         </div>
         <div class="napaka">
             <p>{{this.napaka}}</p>
         </div>
         <div class="plus " v-bind:class="[{ active: add }, ime]">
-            <span v-if="add == true"  v-on:click="hideAdd">
+            <span v-if="add == true" v-on:click="hideAdd">
                 <p>Dodaj</p>
             </span>
             <span v-if="add == false" v-on:click="showAdd">
@@ -33,21 +42,28 @@
                 zmage: 0,
                 add: false,
                 izgovor: "",
-                napaka: ""
+                izgovori: {},
+                showIzgovori: false,
+                napaka: "",
+                width: 0
             };
         },
-        props: ['ime'],
+        props: ['ime', 'sirina'],
         methods: {
             fetchScore: function() {
                 var self = this;
                 setInterval(function() {
                     axios.get('/zmage/' + self.ime).then(function(response) {
                         self.zmage = response.data.zmage;
+                        self.izgovori = response.data.izgovori;
                     });
                 }, 1000);
             },
             showAdd: function() {
                 this.add = true;
+            },
+            showIzgovoriList: function() {
+                this.showIzgovori = ! this.showIzgovori
             },
             hideAdd: function() {
                 if (this.izgovor == "") {

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <Oseba ime="juske"></Oseba>
-    <Oseba ime="myha"></Oseba>
+    <Oseba ime="juske" v-bind:sirina="juske"></Oseba>
+    <Oseba ime="myha" v-bind:sirina="myha"></Oseba>
 @endsection

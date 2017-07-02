@@ -799,8 +799,30 @@ window.Vue = __webpack_require__(37);
 Vue.component('oseba', __webpack_require__(34));
 
 var app = new Vue({
-  el: '#app',
-  data: {}
+    el: '#app',
+    data: {
+        juske: 0,
+        myha: 0
+    },
+    methods: {
+        fetchZmage: function fetchZmage() {
+            var self = this;
+            setInterval(function () {
+                __WEBPACK_IMPORTED_MODULE_0__node_modules_axios___default.a.get('/zmage').then(function (response) {
+                    var celota = response.data.juske + response.data.myha;
+                    var juske = response.data.juske * 100 / celota;
+                    var myha = response.data.myha * 100 / celota;
+                    self.juske = juske;
+                    self.myha = myha;
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            }, 1000);
+        }
+    },
+    created: function created() {
+        this.fetchZmage();
+    }
 });
 
 /***/ }),
@@ -1678,6 +1700,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -1685,21 +1716,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             zmage: 0,
             add: false,
             izgovor: "",
-            napaka: ""
+            izgovori: {},
+            showIzgovori: false,
+            napaka: "",
+            width: 0
         };
     },
-    props: ['ime'],
+    props: ['ime', 'sirina'],
     methods: {
         fetchScore: function fetchScore() {
             var self = this;
             setInterval(function () {
                 axios.get('/zmage/' + self.ime).then(function (response) {
                     self.zmage = response.data.zmage;
+                    self.izgovori = response.data.izgovori;
                 });
             }, 1000);
         },
         showAdd: function showAdd() {
             this.add = true;
+        },
+        showIzgovoriList: function showIzgovoriList() {
+            this.showIzgovori = !this.showIzgovori;
         },
         hideAdd: function hideAdd() {
             if (this.izgovor == "") {
@@ -31809,10 +31847,36 @@ module.exports = function normalizeComponent (
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "oseba"
+    staticClass: "oseba",
+    style: ({
+      width: _vm.sirina + '%'
+    })
   }, [_c('div', {
     staticClass: "inside"
   }, [_c('h1', [_vm._v(_vm._s(this.zmage))]), _vm._v(" "), _c('h2', [_vm._v(_vm._s(this.ime))])]), _vm._v(" "), _c('div', {
+    staticClass: "izgovori",
+    class: {
+      active: _vm.showIzgovori
+    }
+  }, [(_vm.showIzgovori == true) ? _c('p', {
+    staticClass: "active",
+    on: {
+      "click": _vm.showIzgovoriList
+    }
+  }, [_vm._v("Izgovori za poraze "), _c('i', {
+    staticClass: "ion ion-ios-arrow-down"
+  })]) : _vm._e(), _vm._v(" "), (_vm.showIzgovori == false) ? _c('p', {
+    staticClass: "inactive",
+    on: {
+      "click": _vm.showIzgovoriList
+    }
+  }, [_vm._v("Izgovori za poraze "), _c('i', {
+    staticClass: "ion ion-ios-arrow-forward"
+  })]) : _vm._e(), _vm._v(" "), (_vm.showIzgovori == true) ? _c('div', {
+    staticClass: "more"
+  }, [_c('ul', _vm._l((_vm.izgovori), function(izgovor) {
+    return _c('li', [_vm._v(_vm._s(izgovor.izgovor))])
+  }))]) : _vm._e()]), _vm._v(" "), _c('div', {
     staticClass: "napaka"
   }, [_c('p', [_vm._v(_vm._s(this.napaka))])]), _vm._v(" "), _c('div', {
     staticClass: "plus ",

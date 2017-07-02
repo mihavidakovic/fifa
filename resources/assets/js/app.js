@@ -21,5 +21,27 @@ Vue.component('oseba', require('./components/Oseba.vue'));
 const app = new Vue({
     el: '#app',
     data: {
+    	juske: 0,
+    	myha: 0
+    },
+    methods: {
+        fetchZmage: function() {
+            var self = this;
+            setInterval(function() {
+                axios.get('/zmage').then(function(response) {
+                	var celota = response.data.juske + response.data.myha;
+                	var juske = (response.data.juske * 100) / celota;
+					var myha = (response.data.myha * 100) / celota;
+					self.juske = juske;
+					self.myha = myha;
+
+                }) .catch(function (error) {
+				    console.log(error);
+				  });
+            }, 1000);
+        },
+    },
+    created: function() {
+		this.fetchZmage();
     }
 });
