@@ -15,7 +15,7 @@ class CreateZmageTable extends Migration
     {
         Schema::create('zmage', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('oseba');
+            $table->string('oseba');
             $table->string('izgovor');
             $table->timestamps();
         });
