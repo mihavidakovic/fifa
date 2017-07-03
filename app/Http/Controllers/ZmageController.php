@@ -15,7 +15,7 @@ class ZmageController extends Controller
     }
     public function zmage($ime) {
         $zmage = Zmaga::where('oseba', '=', $ime)->count();
-        $izgovori = Zmaga::where('oseba', '!=', $ime)->get();
+        $izgovori = Zmaga::where('oseba', '!=', $ime)->orderBy('created_at', 'desc')->get();
 
         return response()->json(['zmage' => $zmage, 'izgovori' => $izgovori]);
     }

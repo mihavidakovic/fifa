@@ -18,11 +18,43 @@ $myha: #3498DB
 		opacity: 0
 	to
 		opacity: 1
+		
++keyframes(expl)
+	from
+		opacity: 0
+		+transform(translate(-50%, -50%) rotate(-3deg) scale(20))
+	to
+		opacity: 1
+		+transform(translate(-50%, -50%) rotate(-3deg) scale(1))
 
 .fade-enter-active, .fade-leave-active
 	transition: opacity .8s
 .fade-enter, .fade-leave-to 
 	opacity: 0
+
+.expl
+	position: absolute
+	top: 100px
+	left: 50%
+	+transform(translate(-50%, -50%) rotate(-3deg) scale(20))
+	opacity: 0
+	z-index: 200 
+	background-color: #FFF
+	padding: 10px 30px
+	-webkit-box-shadow: 0 3px 20px 0 rgba(#000, 0.2) 
+	 box-shadow: 0 3px 20px 0 rgba(#000, 0.2) 
+	+animation(expl 300ms ease-in-out forwards)
+	+animation-delay(1700ms) 
+	+user-select(none)
+	+transition(100ms all ease-in-out)
+	cursor: default
+	p
+		padding: 0
+		margin: 0
+		font-size: 1.7em
+		text-transform: uppercase 
+		font-weight: 800
+		letter-spacing: 6px
 
 .oseba
 	position: absolute
@@ -64,6 +96,7 @@ $myha: #3498DB
 			opacity: 0
 			+animation(vs 200ms ease-in-out forwards)
 			+animation-delay(1500ms)
+			z-index: 150
 	.izgovori
 		position: absolute
 		width: 300px
@@ -112,7 +145,7 @@ $myha: #3498DB
 			width: 100%
 			height: 80%
 			margin: 0
-			padding: 5px 0 0 
+			padding: 0px 0 0 
 			overflow: scroll
 			transition: 100ms all ease-in-out
 			li
@@ -120,11 +153,12 @@ $myha: #3498DB
 				float: left
 				list-style: none
 				color: rgba(#fff, 0.7)
-				margin-bottom: 3.5px
-				padding-bottom: 3.5px
 				border-bottom: 1px dotted rgba(#fff, 0.09)
+				padding: 10px 6px
 				&:last-child
 					border-bottom: none 
+				&:hover
+					background-color: rgba(#fff, 0.05) 
 				span
 					margin: 0
 					padding: 0
@@ -149,12 +183,16 @@ $myha: #3498DB
 		left: 0
 		z-index: 99
 		transition: 100ms all ease-in-out
-		padding: 45% 20% 
 		&.juske
 			+linear-gradient($juske, darken($juske, 7%))
 		&.myha
 			+linear-gradient($myha, darken($myha, 7%))
 		.form-group
+			position: absolute
+			top: 50%
+			left: 50%
+			width: 70%
+			+transform(translate(-50%, -50%))
 			label
 				color: #FFF 
 			input
@@ -225,14 +263,16 @@ $myha: #3498DB
 			font-weight: 800
 			margin: 0 40px 0 0 
 			width: 100%
+			text-shadow: 0 2px 15px rgba(#000, 0.2) 
 			+mq($until: tablet)
 				font-size: 6em 
 		h2
 			font-size: 4em
-			color: rgba(#fff, 0.5)
+			color: rgba(#fff, 0.86)
 			font-weight: 300 
 			margin: 0
 			width: 100%
 			text-transform: capitalize
+			text-shadow: 0 4px 10px rgba(#000, 0.1) 
 			+mq($until: tablet)
 				font-size: 2.5em 

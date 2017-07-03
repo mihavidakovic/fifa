@@ -809,9 +809,20 @@ var app = new Vue({
     el: '#app',
     data: {
         juske: 0,
-        myha: 0
+        myha: 0,
+        count: 0,
+        message: "Fifa 2017"
     },
     methods: {
+        addCount: function addCount() {
+            if (this.count == 5) {
+                this.message = "Juske najslabši u fifi";
+                this.count = 0;
+            } else {
+                this.count++;
+            }
+        },
+
         fetchZmage: function fetchZmage() {
             var self = this;
             setInterval(function () {
@@ -819,8 +830,13 @@ var app = new Vue({
                     var celota = response.data.juske + response.data.myha;
                     var juske = response.data.juske * 100 / celota;
                     var myha = response.data.myha * 100 / celota;
-                    self.juske = juske;
-                    self.myha = myha;
+                    if (celota == 0) {
+                        self.juske = 50;
+                        self.myha = 50;
+                    } else {
+                        self.juske = juske;
+                        self.myha = myha;
+                    }
                 }).catch(function (error) {
                     console.log(error);
                 });
