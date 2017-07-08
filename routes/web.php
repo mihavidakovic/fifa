@@ -33,3 +33,9 @@ Route::post('dodaj/{ime}', [
 	'as' => 'dodaj',
 	'uses' => 'ZmageController@dodaj'
 ]);
+
+
+Route::get('izbrisi/{id}', [
+	'as' => 'izbrisi',
+	'uses' => 'ZmageController@izbrisi'
+]);

@@ -31,12 +31,21 @@ const app = new Vue({
     	juske: 0,
     	myha: 0,
     	count: 0,
-    	message: "Fifa 2017"
+    	message: "Fifa 2017",
+        altMessage: [
+            "Myha Foreee",
+            "Juske najslabši",
+            "Myha skos pametn neki",
+            "Juske legenda",
+            "Juske ne ve kje je doma"
+        ]
     },
     methods: {
         addCount(){
         	if (this.count == 5) {
-        		this.message = "Juske najslabši u fifi";
+                var random = 0;
+                random = Math.floor(Math.random() * this.altMessage.length)
+        		this.message = this.altMessage[random];
         		this.count = 0;
         	} else {
         		this.count++;
@@ -53,7 +62,10 @@ const app = new Vue({
 						self.juske = 50;
 						self.myha = 50;
 
-					} else {
+					} else if ((response.data.juske == 0 && response.data.myha >= 1) || (response.data.myha == 0 && response.data.juske >= 1)) {
+                        self.juske = 50;
+                        self.myha = 50;
+                    } else {
 						self.juske = juske;
 						self.myha = myha;
 					}

@@ -10,8 +10,9 @@
             <div class="more" v-if="showIzgovori == true">
                 <ul>
                     <li v-for="izgovor in izgovori">
-                        <span>{{izgovor.izgovor}}</span>
+                        <span>{{izgovor.izgovor}} - </span>
                         <small>{{izgovor.created_at | moment("from", "now")}}</small>
+                        <a href="#" v-on:click="izbrisi(izgovor.id)">Izbriši</a>
                     </li>
                 </ul>
             </div>
@@ -31,7 +32,7 @@
             <div class="add" v-show="add" v-bind:class="[ime]">
                 <div class="form-group">
                     <label for="izgovor">Izgovor za poraz:</label>
-                    <input v-model="izgovor" type="email" name="izgovor" class="form-control" id="izgovor" placeholder="Npr.: ti itak skos igraš">
+                    <input autofocus v-model="izgovor" type="email" name="izgovor" class="form-control" id="izgovor" placeholder="Npr.: ti itak skos igraš">
                 </div>
             </div>
         </transition>
@@ -91,10 +92,17 @@
                     this.izgovor = "";
                     this.add = false;
                 }
+            },
+            izbrisi: function(id) {
+                axios.get('/izbrisi/' + id).then(function(response) {
+                    console.log(response.data);
+                    
+                });
             }
         },
         created: function() {
             this.fetchScore();
+            this.$refs.izgovor.focus();
         }
     }
 </script>

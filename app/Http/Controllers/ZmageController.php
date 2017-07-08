@@ -20,11 +20,17 @@ class ZmageController extends Controller
         return response()->json(['zmage' => $zmage, 'izgovori' => $izgovori]);
     }
     public function dodaj($ime, Request $request) {
-    	$z = new Zmaga;
-    	$z->oseba = $ime;
-    	$z->izgovor = $request->input('izgovor');
-    	$z->save();
+        $z = new Zmaga;
+        $z->oseba = $ime;
+        $z->izgovor = $request->input('izgovor');
+        $z->save();
 
-    	return response()->json(['z' => $z]);
+        return response()->json(['z' => $z]);
+    }
+    public function izbrisi($id, Request $request) {
+        $z = Zmaga::find($id);
+        $z->delete();
+
+        return response()->json(['success' => true]);
     }
 }
